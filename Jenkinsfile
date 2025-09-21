@@ -2,12 +2,12 @@ pipeline {
     agent any
 
     environment {
-        GITHUB_REPO = 'placeholder-repo'
-        GITHUB_BRANCH = 'main'
+        GITHUB_REPO = "placeholder-repo"
+        GITHUB_BRANCH = "main"
     }
 
     stages {
-        stage('Stage 1: Build') {
+        stage("Stage 1: Build") {
             steps {
                 echo "Building application Using Docker"
                 echo "Tool: Docker - containerizing the application"
@@ -16,7 +16,7 @@ pipeline {
             }
         }
 
-        stage('Stage 2: Unit and Integration Tests') {
+        stage("Stage 2: Unit and Integration Tests") {
             steps {
                 echo "Running Unit Tests"
                 echo "Tool: Jest - Frontend and Backend JavaScript testing"
@@ -25,7 +25,7 @@ pipeline {
             }
         }
 
-        stage('Stage 3: Code Analysis') {
+        stage("Stage 3: Code Analysis") {
             steps {
                 echo "Running Code Analysis"
                 echo "Tool: SonarQube - Code quality and maintainability analysis"
@@ -34,7 +34,7 @@ pipeline {
             }
         }
 
-        stage('Stage 4: Security Scan') {
+        stage("Stage 4: Security Scan") {
             steps {
                 echo "Running Security Scan"
                 echo "Tool: npm audit - Node.js dependency vulnerability scanning"
@@ -43,7 +43,7 @@ pipeline {
             }
         }
 
-        stage('Stage 5: Deploy to Staging') {
+        stage("Stage 5: Deploy to Staging") {
             steps {
                 echo "Deploying to Staging"
                 echo "Tool: Docker - Container deployment"
@@ -52,7 +52,7 @@ pipeline {
             }
         }
 
-        stage('Stage 6: Integration Tests on Staging') {
+        stage("Stage 6: Integration Tests on Staging") {
             steps {
                 echo "Running Integration Tests on Staging"
                 echo "Tool: Postman/Newman - API testing"
@@ -61,7 +61,7 @@ pipeline {
             }
         }
 
-        stage('Stage 7: Deploy to Production') {
+        stage("Stage 7: Deploy to Production") {
             steps {
                 echo "Deploying to Production"
                 echo "Tool: Docker - Container deployment"
@@ -77,7 +77,7 @@ pipeline {
             echo "Pipeline completed successfully"
             echo "Sending email notification to hashemramdan59@gmail.com"
             emailext {
-                to: 'hashemramdan59@gmail.com',
+                to: "hashemramdan59@gmail.com",
                 subject: "Pipeline Success: CI/CD Pipeline",
                 attachLog: true,
                 body: "The pipeline has completed successfully."
