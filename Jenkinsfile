@@ -71,4 +71,21 @@ pipeline {
             }
         }
     }
+
+    post {
+        success {
+            echo "Pipeline completed successfully"
+            echo "Sending email notification to hashemramdan59@gmail.com"
+            mail to: 'hashemramdan59@gmail.com',
+            subject: "Pipeline Success: CI/CD Pipeline",
+            body: "The pipeline has completed successfully."
+        }
+        failure {
+            echo "Pipeline failed"
+            echo "Sending failure notification to hashemramdan59@gmail.com"
+            mail to: 'hashemramdan59@gmail.com',
+            subject: "Pipeline Failed: CI/CD Pipeline",
+            body: "The pipeline has failed."
+        }
+    }
 }
