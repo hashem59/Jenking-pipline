@@ -75,7 +75,6 @@ pipeline {
     post {
         success {
             emailext (
-                to: "hashemramdan59@gmail.com",
                 from: "hashemramdan59@gmail.com",
                 subject: "Pipeline Success: CI/CD Pipeline - Build #${BUILD_NUMBER}",
                 body: "The pipeline has completed successfully.",
