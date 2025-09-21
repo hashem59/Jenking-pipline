@@ -77,17 +77,12 @@ pipeline {
             echo "Pipeline completed successfully"
             echo "Sending email notification to hashemramdan59@gmail.com"
             mail to: 'hashemramdan59@gmail.com',
-            subject: "Pipeline Success: CI/CD Pipeline",
-            attachLog: true,
-            body: "The pipeline has completed successfully."
-        }
-        failure {
-            echo "Pipeline failed"
-            echo "Sending failure notification with log attachments to hashemramdan59@gmail.com"
-            mail to: 'hashemramdan59@gmail.com',
-            subject: "Pipeline Failed: CI/CD Pipeline",
-            attachLog: true,
-            body: "The pipeline has failed."
+            emailext {
+                subject: "Pipeline Success: CI/CD Pipeline",
+                attachLog: true,
+                body: "The pipeline has completed successfully."
+            }
+
         }
     }
 }
