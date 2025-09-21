@@ -78,7 +78,7 @@ pipeline {
             echo "Sending email notification with log attachments to hashemramdan59@gmail.com"
             emailext (
                 to: 'hashemramdan59@gmail.com',
-                subject: "Pipeline Success: CI/CD Pipeline - Build #${BUILD_NUMBER}",
+                subject: "Pipeline Success: CI/CD Pipeline",
                 body: "The pipeline has completed successfully. Please find the build logs attached.",
                 attachLog: true,
                 compressLog: true
@@ -89,15 +89,11 @@ pipeline {
             echo "Sending failure notification with log attachments to hashemramdan59@gmail.com"
             emailext (
                 to: 'hashemramdan59@gmail.com',
-                subject: "Pipeline Failed: CI/CD Pipeline - Build #${BUILD_NUMBER}",
+                subject: "Pipeline Failed: CI/CD Pipeline",
                 body: "The pipeline has failed. Please check the attached logs for details.",
                 attachLog: true,
                 compressLog: true
             )
-        }
-        always {
-            echo "Archiving build logs and artifacts"
-            archiveArtifacts artifacts: '**/*.log', allowEmptyArchive: true
         }
     }
 }
