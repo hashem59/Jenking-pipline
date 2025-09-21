@@ -78,9 +78,7 @@ pipeline {
             emailext (
                 to: "hashemramdan59@gmail.com",
                 subject: "Pipeline Success: CI/CD Pipeline - Build #${BUILD_NUMBER}",
-                body: "The pipeline has completed successfully. Please find the build logs attached.",
-                attachLog: true,
-                compressLog: true
+                body: "The pipeline has completed successfully. Please find the build logs attached."
             )
         }
     }
