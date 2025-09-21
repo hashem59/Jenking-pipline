@@ -82,5 +82,19 @@ pipeline {
                 attachLog: true
             )
         }
+
+        failure {
+            emailext (
+                to: "hashemramdan59@gmail.com",
+                subject: "Pipeline Failure: CI/CD Pipeline - Build #${BUILD_NUMBER}",
+                body: "The pipeline has failed.",
+                replyTo: "hashemramdan59@gmail.com",
+                attachLog: true
+            )
+        }
+
+        always {
+            echo "Pipeline completed"
+        }
     }
 }
