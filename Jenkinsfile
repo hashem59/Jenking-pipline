@@ -73,27 +73,21 @@ pipeline {
     }
 
     post {
-        success {
+         success {
             echo "Pipeline completed successfully"
-            echo "Sending email notification with log attachments to hashemramdan59@gmail.com"
-            emailext (
-                to: 'hashemramdan59@gmail.com',
-                subject: "Pipeline Success: CI/CD Pipeline",
-                body: "The pipeline has completed successfully. Please find the build logs attached.",
-                attachLog: true,
-                compressLog: true
-            )
+            echo "Sending email notification to hashemramdan59@gmail.com"
+            mail to: 'hashemramdan59@gmail.com',
+            subject: "Pipeline Success: CI/CD Pipeline",
+            emailext attachLog: true,
+            body: "The pipeline has completed successfully."
         }
         failure {
             echo "Pipeline failed"
             echo "Sending failure notification with log attachments to hashemramdan59@gmail.com"
-            emailext (
-                to: 'hashemramdan59@gmail.com',
-                subject: "Pipeline Failed: CI/CD Pipeline",
-                body: "The pipeline has failed. Please check the attached logs for details.",
-                attachLog: true,
-                compressLog: true
-            )
+            mail to: 'hashemramdan59@gmail.com',
+            subject: "Pipeline Failed: CI/CD Pipeline",
+            emailext attachLog: true,
+            body: "The pipeline has failed."
         }
     }
 }
