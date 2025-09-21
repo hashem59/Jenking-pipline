@@ -78,6 +78,7 @@ pipeline {
                 to: "hashemramdan59@gmail.com",
                 subject: "Pipeline Success: CI/CD Pipeline - Build #${BUILD_NUMBER}",
                 body: "The pipeline has completed successfully.",
+                replyTo: "hashemramdan59@gmail.com",
                 attachLog: true
             )
         }
