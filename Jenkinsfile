@@ -78,6 +78,7 @@ pipeline {
             echo "Sending email notification to hashemramdan59@gmail.com"
             mail to: 'hashemramdan59@gmail.com',
             emailext {
+                to: 'hashemramdan59@gmail.com',
                 subject: "Pipeline Success: CI/CD Pipeline",
                 attachLog: true,
                 body: "The pipeline has completed successfully."
