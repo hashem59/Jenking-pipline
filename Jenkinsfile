@@ -74,10 +74,14 @@ pipeline {
 
     post {
          success {
-            mail to: "hashemramdan59@gmail.com",
-            subject: "Pipeline Success: CI/CD Pipeline",
-            body: "The pipeline has completed successfully.",
-            attachLog: true
+            emailext {
+                to: "hashemramdan59@gmail.com",
+                subject: "Pipeline Success: CI/CD Pipeline",
+                body: "The pipeline has completed successfully.",
+                attachLog: true,
+                compressLog: true
+            }
+  
         }
     }
 }
